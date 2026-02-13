@@ -215,7 +215,7 @@ const App: React.FC = () => {
       const lastIndicator = activeData.indicators[activeData.indicators.length - 1];
       const fibs = calculateFibonacciLevels(activeData.candles.slice(-100));
 
-      if (!lastIndicator || !fibs) return;
+      if (!lastIndicator || !fibs || lastIndicator.ema99 === undefined || lastIndicator.ema25 === undefined || lastIndicator.ema7 === undefined || lastIndicator.rsi === undefined || !lastIndicator.macd) return;
 
       const marketData = {
         symbol: settings.defaultSymbol,
